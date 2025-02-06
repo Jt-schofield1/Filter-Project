@@ -97,7 +97,7 @@ const setCategories = () => {
     const allCats = data.map(item => item.cat); // new array of all categories 
     const categories = [
       "ALL", // add all as the first category for displaying all products 
-      ...allCats.filter((item,i ) => { // ... is used to add all the categories to the categories array
+      ...allCats.filter((item, i ) => { // ... is used to add all the categories to the categories array
         return allCats.indexOf(item) === i;
 
       })
@@ -108,9 +108,7 @@ const setCategories = () => {
 //display categories as clickable span tags 
 categoriesContainer.innerHTML = categories.map(cat =>
   `
-  <span class = "cats'>${cat}</span>
-  
-  
+  <span class = "cat">${cat}</span>
   `
 ).join('');
 
@@ -121,10 +119,12 @@ categoriesContainer.addEventListener("click", (e)=> {
   const selectedCat = e.target.textContent;
 
   if(selectedCat === "ALL"){
-    displayProducts(data);
+    displayProducts(data)
 
   }else{
-    displayProducts(data.filter(item => item.cat === selectedCat))
+    displayProducts(data.filter(item => 
+    item.cat === selectedCat
+  ))
   }
 })
 
