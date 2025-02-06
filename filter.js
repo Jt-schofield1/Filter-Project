@@ -59,7 +59,7 @@ const displayProducts = (filteredProducts) => {
         <div class = "product">
                 <img src = ${product.img} alt = "">
                 <span class = "name">${product.name}</span>
-                <span class = "priceText">${product.price}</span>
+                <span class = "priceText"> $ ${product.price}</span>
 
         </div>
         `
