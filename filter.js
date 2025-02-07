@@ -130,4 +130,32 @@ categoriesContainer.addEventListener("click", (e)=> {
 
 }
 
+
+//create a function to set up the price range filter 
+const setPrices = () => {
+  //extract price values from the data 
+  const priceList = data.map(item => item.price);
+  const minPrice = Math.min(...priceList);
+  const maxPrice = Math.max(...priceList);
+  
+  // configure the range slider 
+  priceRange.min = minPrice;
+  priceRange.max = maxPrice;
+  priceRange.value = maxPrice ;
+  priceValue.textContent = "$" + maxPrice;
+  
+  //event listener for the price range filter
+  priceRange.addEventListener("input", (e)=> {
+    priceValue.textContent = "$" + e.target.value;
+    displayProducts(data.filter(item => item.price <= e.target.value));
+
+  })
+
+
+
+
+
+}
+
+setPrices();
 setCategories();
